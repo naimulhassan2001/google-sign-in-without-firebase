@@ -17,10 +17,10 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // Initialize GoogleSignIn object
-  GoogleSignIn _googleSignIn = GoogleSignIn(
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: [
-      'email',
       'https://www.googleapis.com/auth/userinfo.profile',
+      'https://www.googleapis.com/auth/userinfo.email',
     ],
   );
 
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
         _currentUser = account;
       });
     });
-    _googleSignIn.signInSilently(); // Automatically sign in the user if possible
+    _googleSignIn.signInSilently();
   }
 
   // Sign in method
